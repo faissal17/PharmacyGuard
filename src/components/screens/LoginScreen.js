@@ -1,12 +1,45 @@
-import { View, Text } from 'react-native';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  useWindowDimensions,
+} from 'react-native';
+import Logo from '../../../assets/images/pharmacy.png';
+import CustomInput from '../common/CustomInput';
 
 const LoginScreen = () => {
+  const { height } = useWindowDimensions();
   return (
-    <View>
-      <Text>LoginScreen</Text>
+    <View style={styles.container}>
+      <Image
+        source={Logo}
+        style={[logoStyle.container, { height: height * 0.3 }]}
+        resizeMode="contain"
+      />
+      <StatusBar style="auto" />
+      <CustomInput />
     </View>
   );
 };
+
+const logoStyle = StyleSheet.create({
+  container: {
+    width: '70%',
+    maxWidth: 500,
+    maxHeight: 300,
+  },
+});
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F9FBFC',
+    alignItems: 'center',
+    padding: 20,
+  },
+});
 
 export default LoginScreen;
