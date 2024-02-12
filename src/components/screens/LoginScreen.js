@@ -9,17 +9,21 @@ import React, { useState } from 'react';
 import Logo from '../../assets/images/pharmacy.png';
 import CustomInput from '../common/CustomInput';
 import CustomButton from '../common/CustomButton';
+import { LoginScreenStyle } from '../../styles/globalStyle';
 
 const LoginScreen = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const { height } = useWindowDimensions();
+  onLoginPressed = () => {
+    console.warn('cool');
+  };
   return (
-    <View style={style.root}>
+    <View style={LoginScreenStyle.root}>
       <Image
         source={Logo}
-        style={[style.Logo, { height: height * 0.3 }]}
+        style={[LoginScreenStyle.Logo, { height: height * 0.3 }]}
         resizeMode="contain"
       />
       <CustomInput
@@ -33,21 +37,13 @@ const LoginScreen = () => {
         setValue={setPassword}
         secureTextEntry
       />
-      <CustomButton/>
+      <CustomButton text="Sign In" onPress={onLoginPressed} />
+      <CustomButton
+        text="Don't you have an account?"
+        onPress={onLoginPressed}
+      />
     </View>
   );
 };
-
-const style = StyleSheet.create({
-  root: {
-    alignItems: 'center',
-    padding: 20,
-  },
-  Logo: {
-    width: '80%',
-    maxWidth: 300,
-    maxHeight: 300,
-  },
-});
 
 export default LoginScreen;
