@@ -28,16 +28,13 @@ export const customInputStyle = StyleSheet.create({
 });
 
 export const CustomButtonStyle = StyleSheet.create({
-    container: {
-        backgroundColor: '#3B71F3',
-        width: '100%',
-        padding: 15,
-        marginVertical: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      text: {
-        fontWeight: 'bold',
-        color: 'white',
-      },
-})
+  container: {
+    width: '100%',
+    padding: 15,
+    marginVertical: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container_primary: { backgroundColor: '#3B71F3', color: 'white' },
+  container_sec: { fontWeight: 'bold', color: '#000000' },
+});

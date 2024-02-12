@@ -37,10 +37,11 @@ const LoginScreen = () => {
         setValue={setPassword}
         secureTextEntry
       />
-      <CustomButton text="Sign In" onPress={onLoginPressed} />
+      <CustomButton text="Sign In" onPress={onLoginPressed} type='primary' />
       <CustomButton
         text="Don't you have an account?"
         onPress={onLoginPressed}
+        type="sec"
       />
     </View>
   );
