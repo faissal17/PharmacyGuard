@@ -7,7 +7,7 @@ import LoginScreen from '../components/screens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => {
+const AppNavigator = () => { 
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>

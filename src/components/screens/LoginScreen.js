@@ -11,7 +11,7 @@ import CustomInput from '../common/CustomInput';
 import CustomButton from '../common/CustomButton';
 import { LoginScreenStyle } from '../../styles/globalStyle';
 import { useNavigation } from '@react-navigation/native';
-
+import { FIREBASE_AUTH } from '../../../FireBase.config';
 const LoginScreen = () => {
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,15 +19,26 @@ const LoginScreen = () => {
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
 
+  const auth = FIREBASE_AUTH;
+
   onLoginPressed = () => {
     console.warn('cool');
   };
 
   onRegisterPress = () => {
     console.warn('Register Page');
-
     navigation.navigate('Register');
   };
+
+  const Login = async () => {
+    try {
+      const response = auth.signInWithEmailAndPassword(userEmail, password);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={LoginScreenStyle.root}>
       <Image
@@ -40,12 +51,12 @@ const LoginScreen = () => {
       <CustomInput
         placeholder="User Email"
         value={userEmail}
-        setValue={setUserEmail}
+        onChangeText={(text) => setUserEmail(text)}
       />
       <CustomInput
         placeholder="User Password"
         value={password}
-        setValue={setPassword}
+        onChangeText={(text) => setPassword(text)}
         secureTextEntry
       />
       <CustomButton text="Sign In" onPress={onLoginPressed} type="primary" />
