@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground,SafeAreaView } from 'react-native';
 import LoginScreen from './src/components/screens/LoginScreen';
+import RegisterScreen from './src/components/screens/RegisterScreen';
 import background from './src/assets/images/background.png';
 
 export default function App() {
   return (
     <ImageBackground source={background} style={styles.background}>
-      <View style={styles.container}>
-        <LoginScreen />
-      </View>
+      <SafeAreaView style={styles.container}>
+        <RegisterScreen />
+      </SafeAreaView>
     </ImageBackground>
   );
 }

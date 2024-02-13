@@ -34,7 +34,10 @@ export const CustomButtonStyle = StyleSheet.create({
     marginVertical: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   container_primary: { backgroundColor: '#3B71F3', color: 'white' },
   container_sec: { fontWeight: 'bold', color: '#000000' },
+  container_third: { fontWeight: 'bold', color: '#5F9EA0', padding: 2 },
 });

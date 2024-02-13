@@ -1,16 +1,19 @@
 import {
   View,
+  Text,
   Image,
   useWindowDimensions,
+  StyleSheet,
 } from 'react-native';
 import React, { useState } from 'react';
-import Logo from '../../assets/images/pharmacy.png';
+import Logo from '../../assets/images/registerbackground.png';
 import CustomInput from '../common/CustomInput';
 import CustomButton from '../common/CustomButton';
 import { LoginScreenStyle } from '../../styles/globalStyle';
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const { height } = useWindowDimensions();
@@ -24,6 +27,12 @@ const LoginScreen = () => {
         style={[LoginScreenStyle.Logo, { height: height * 0.3 }]}
         resizeMode="contain"
       />
+      <Text style={style.title}>Create an Account</Text>
+      <CustomInput
+        placeholder="User Name"
+        value={userName}
+        setValue={setUserName}
+      />
       <CustomInput
         placeholder="User Email"
         value={userEmail}
@@ -35,17 +44,16 @@ const LoginScreen = () => {
         setValue={setPassword}
         secureTextEntry
       />
-      <CustomButton text="Sign In" onPress={onLoginPressed} type="primary" />
-      <CustomButton
-        text="Don't you have an account?"
-        type="sec"
-      />
-      <CustomButton
-        text="Forget password?"
-        type="third"
-      />
+
+      <CustomButton text="Register" onPress={onLoginPressed} type="primary" />
+      <CustomButton text="Already have an account? Login here" type="sec" />
+      <CustomButton text="Forget password?" type="third" />
     </View>
   );
 };
 
-export default LoginScreen;
+const style = StyleSheet.create({
+  title: { fontWeight: 'bold', fontSize: 24, margin: 10, color: '#051C60' },
+});
+
+export default RegisterScreen;
