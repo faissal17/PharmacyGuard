@@ -21,13 +21,13 @@ const RegisterScreen = () => {
   const { height } = useWindowDimensions();
 
   const navigation = useNavigation();
-  
+
   onRegisterPressed = () => {
     console.warn('you have been registred');
   };
   onLoginPressed = () => {
     console.warn('Login page');
-    navigation.navigate('Login')
+    navigation.navigate('Login');
   };
   return (
     <View style={LoginScreenStyle.root}>
@@ -69,7 +69,6 @@ const RegisterScreen = () => {
         type="sec"
         onPress={onLoginPressed}
       />
-      <CustomButton text="Forget password?" type="third" />
     </View>
   );
 };

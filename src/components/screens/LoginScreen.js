@@ -1,4 +1,10 @@
-import { View, Image, useWindowDimensions } from 'react-native';
+import {
+  View,
+  Image,
+  useWindowDimensions,
+  StyleSheet,
+  Text,
+} from 'react-native';
 import React, { useState } from 'react';
 import Logo from '../../assets/images/pharmacy.png';
 import CustomInput from '../common/CustomInput';
@@ -29,6 +35,8 @@ const LoginScreen = () => {
         style={[LoginScreenStyle.Logo, { height: height * 0.3 }]}
         resizeMode="contain"
       />
+      <Text style={style.title}>Welcom Back, Please login</Text>
+
       <CustomInput
         placeholder="User Email"
         value={userEmail}
@@ -46,9 +54,12 @@ const LoginScreen = () => {
         onPress={onRegisterPress}
         type="sec"
       />
-      <CustomButton text="Forget password?" type="third" />
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  title: { fontWeight: 'bold', fontSize: 24, margin: 10, color: '#051C60' },
+});
 
 export default LoginScreen;
