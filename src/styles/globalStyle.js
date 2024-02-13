@@ -14,12 +14,12 @@ export const LoginScreenStyle = StyleSheet.create({
 
 export const customInputStyle = StyleSheet.create({
   conatiner: {
-    backgroundColor: 'white',
+    backgroundColor: '#F1FFF7',
     width: '100%',
 
     borderColor: '#e8e8e8',
     padding: 10,
-    borderWidth: 3,
+    borderWidth: 1,
     borderRadius: 5,
 
     paddingHorizontal: 10,
