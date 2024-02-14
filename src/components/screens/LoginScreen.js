@@ -12,6 +12,8 @@ import CustomButton from '../common/CustomButton';
 import { LoginScreenStyle } from '../../styles/globalStyle';
 import { useNavigation } from '@react-navigation/native';
 import { FIREBASE_AUTH } from '../../../FireBase.config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 const LoginScreen = () => {
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,15 +27,16 @@ const LoginScreen = () => {
     console.warn('cool');
   };
 
-  onRegisterPress = () => {
+  onRegisterPress = () => { 
     console.warn('Register Page');
     navigation.navigate('Register');
   };
 
   const Login = async () => {
     try {
-      const response = auth.signInWithEmailAndPassword(userEmail, password);
-      console.log(response);
+      const response = signInWithEmailAndPassword(auth, userEmail, password);
+      console.log(response.user.email);
+      navigation.navigate('Home')
     } catch (error) {
       console.log(error);
     }
@@ -51,15 +54,15 @@ const LoginScreen = () => {
       <CustomInput
         placeholder="User Email"
         value={userEmail}
-        onChangeText={(text) => setUserEmail(text)}
+        setValue={setUserEmail}
       />
       <CustomInput
         placeholder="User Password"
         value={password}
-        onChangeText={(text) => setPassword(text)}
+        setValue={setPassword}
         secureTextEntry
       />
-      <CustomButton text="Sign In" onPress={onLoginPressed} type="primary" />
+      <CustomButton text="Sign In" onPress={Login} type="primary" />
       <CustomButton
         text="Don't you have an account? Register Here"
         onPress={onRegisterPress}

@@ -10,8 +10,12 @@ import Logo from '../../assets/images/registerbackground.png';
 import CustomInput from '../common/CustomInput';
 import CustomButton from '../common/CustomButton';
 import { LoginScreenStyle } from '../../styles/globalStyle';
-
 import { useNavigation } from '@react-navigation/native';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+import { FIREBASE_AUTH } from '../../../FireBase.config';
 
 const RegisterScreen = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -29,6 +33,23 @@ const RegisterScreen = () => {
     console.warn('Login page');
     navigation.navigate('Login');
   };
+
+  const auth = FIREBASE_AUTH;
+
+  const Register = async () => {
+    try {
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        userEmail,
+        password,
+      );
+      console.log(response.user.email); 
+      navigation.navigate('Login');
+    } catch (error) {
+      console.error(error); 
+    }
+  };
+  
   return (
     <View style={LoginScreenStyle.root}>
       <Image
@@ -37,11 +58,11 @@ const RegisterScreen = () => {
         resizeMode="contain"
       />
       <Text style={style.title}>Create an Account</Text>
-      <CustomInput
+      {/* <CustomInput
         placeholder="User Name"
         value={userName}
         setValue={setUserName}
-      />
+      /> */}
       <CustomInput
         placeholder="User Email"
         value={userEmail}
@@ -54,11 +75,7 @@ const RegisterScreen = () => {
         secureTextEntry
       />
 
-      <CustomButton
-        text="Register"
-        onPress={onRegisterPressed}
-        type="primary"
-      />
+      <CustomButton text="Register" onPress={Register} type="primary" />
       <Text style={style.text}>
         By registering, you conform that you accept our{' '}
         <Text style={style.link}>Terms of Use</Text> and{' '}
