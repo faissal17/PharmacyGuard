@@ -35,7 +35,7 @@ const LoginScreen = () => {
   const Login = async () => {
     try {
       const response = signInWithEmailAndPassword(auth, userEmail, password);
-      console.log(response.user.email);
+      console.log(response);
       navigation.navigate('Home');
     } catch (error) {
       console.log(error);

@@ -19,7 +19,6 @@ import { FIREBASE_AUTH } from '../../../FireBase.config';
 
 const RegisterScreen = () => {
   const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const { height } = useWindowDimensions();
@@ -43,13 +42,13 @@ const RegisterScreen = () => {
         userEmail,
         password,
       );
-      console.log(response.user.email); 
+      console.log(response.user.email);
       navigation.navigate('Login');
     } catch (error) {
-      console.error(error); 
+      console.error(error);
     }
   };
-  
+
   return (
     <View style={LoginScreenStyle.root}>
       <Image
@@ -58,11 +57,6 @@ const RegisterScreen = () => {
         resizeMode="contain"
       />
       <Text style={style.title}>Create an Account</Text>
-      {/* <CustomInput
-        placeholder="User Name"
-        value={userName}
-        setValue={setUserName}
-      /> */}
       <CustomInput
         placeholder="User Email"
         value={userEmail}

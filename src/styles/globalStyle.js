@@ -42,10 +42,10 @@ export const CustomButtonStyle = StyleSheet.create({
   container_third: { fontWeight: 'bold', color: '#5F9EA0', padding: 2 },
 });
 
-export const HomeStyle = StyleSheet.create({
+export const HomeScreenStyle = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
+  Logo: { width: '80%', maxWidth: 300, maxHeight: 300 },
 });
