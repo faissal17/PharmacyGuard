@@ -7,13 +7,13 @@ import CustomNavbar from '../common/CustomNavbar';
 const HomeScreen = () => {
   const { height } = useWindowDimensions();
   return (
-    <View style={HomeScreenStyle.container}>
+    <View>
       <Image
         source={Logo}
         style={[HomeScreenStyle.Logo, { height: height * 0.3 }]}
         resizeMode="contain"
       />
-      <CustomNavbar/>
+      <CustomNavbar />
     </View>
   );
 };

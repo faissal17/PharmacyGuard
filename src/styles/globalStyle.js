@@ -43,9 +43,5 @@ export const CustomButtonStyle = StyleSheet.create({
 });
 
 export const HomeScreenStyle = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    padding: 20,
-  },
   Logo: { width: '80%', maxWidth: 300, maxHeight: 300 },
 });
