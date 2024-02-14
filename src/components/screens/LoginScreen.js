@@ -27,7 +27,7 @@ const LoginScreen = () => {
     console.warn('cool');
   };
 
-  onRegisterPress = () => { 
+  onRegisterPress = () => {
     console.warn('Register Page');
     navigation.navigate('Register');
   };
@@ -36,9 +36,10 @@ const LoginScreen = () => {
     try {
       const response = signInWithEmailAndPassword(auth, userEmail, password);
       console.log(response.user.email);
-      navigation.navigate('Home')
+      navigation.navigate('Home');
     } catch (error) {
       console.log(error);
+      alert('Login failed:' + error.message);
     }
   };
 
