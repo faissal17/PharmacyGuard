@@ -41,3 +41,11 @@ export const CustomButtonStyle = StyleSheet.create({
   container_sec: { fontWeight: 'bold', color: '#000000' },
   container_third: { fontWeight: 'bold', color: '#5F9EA0', padding: 2 },
 });
+
+export const HomeStyle = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
