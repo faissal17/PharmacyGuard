@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-
+import { View, Text } from 'react-native';
+import React from 'react';
+import { PharmacyListsScreenStyle } from '../../styles/globalStyle';
 const PharmacyListScreen = () => {
   return (
-    <View>
-      <Text>PharmacyListScreen</Text>
+    <View style={PharmacyListsScreenStyle.conatiner}>
+      <Text style={PharmacyListsScreenStyle.text}>Pharmacy List</Text>
     </View>
-  )
-}
+  );
+};
 
-export default PharmacyListScreen
+export default PharmacyListScreen;

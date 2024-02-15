@@ -43,5 +43,25 @@ export const CustomButtonStyle = StyleSheet.create({
 });
 
 export const HomeScreenStyle = StyleSheet.create({
-  Logo: { width: '80%', maxWidth: 300, maxHeight: 300 },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  navbar: {
+    flex: 1,
+  },
+  Logo: {
+    width: '80%',
+    maxWidth: 300,
+    maxHeight: 300,
+  },
+});
+
+export const PharmacyListsScreenStyle = StyleSheet.create({
+  conatiner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: { color: 'red' },
 });
