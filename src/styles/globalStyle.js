@@ -76,8 +76,35 @@ export const PharmacyListsScreenStyle = StyleSheet.create({
     color: 'green',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 12,
+    fontSize: 30,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
     paddingVertical: 23,
+  },
+});
+
+export const CustomTableStyle = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+  },
+  image: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+    borderRadius: 25,
+  },
+  info: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  icons: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

@@ -30,18 +30,21 @@ const LoginScreen = () => {
   };
 
   onRegisterPress = () => {
-    console.warn('Register Page');
     navigation.navigate('Register');
   };
 
   const Login = async () => {
     try {
-      const response = signInWithEmailAndPassword(auth, userEmail, password);
+      const response = await signInWithEmailAndPassword(
+        auth,
+        userEmail,
+        password,
+      );
       console.log(response);
       navigation.navigate('Home');
     } catch (error) {
-      console.log(error);
-      alert('Login failed:' + error.message);
+      console.error(error);
+      alert('Login failed: Email or password are wrong');
     }
   };
 

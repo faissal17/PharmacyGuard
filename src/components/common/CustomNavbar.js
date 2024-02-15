@@ -4,12 +4,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PharmacyListScreen from '../screens/PharmacyListScreen';
 import SettingScreen from '../screens/SettingScreen';
 import PharmacyDetailsScreen from '../screens/PharmacyDetailsScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
 
 const Tab = createBottomTabNavigator();
 
 const PharmacyDetailsScreenName = 'Pharmacy Details';
 const SettingScreenName = 'Settings';
 const PharmacyListScreenName = 'Pharmacy List';
+const FavoritesScreenName = 'Favorites ';
 
 const CustomNavbar = () => {
   return (
@@ -27,6 +29,9 @@ const CustomNavbar = () => {
               break;
             case PharmacyDetailsScreenName:
               iconName = focused ? 'list' : 'list-outline';
+              break;
+            case FavoritesScreenName:
+              iconName = focused ? 'heart' : 'heart-outline';
               break;
             case SettingScreenName:
               iconName = focused ? 'settings' : 'settings-outline';
@@ -47,6 +52,7 @@ const CustomNavbar = () => {
         name={PharmacyListScreenName}
         component={PharmacyListScreen}
       />
+      <Tab.Screen name={FavoritesScreenName} component={FavoritesScreen} />
       <Tab.Screen
         name={PharmacyDetailsScreenName}
         component={PharmacyDetailsScreen}
