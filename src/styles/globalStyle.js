@@ -10,6 +10,10 @@ export const LoginScreenStyle = StyleSheet.create({
     maxWidth: 300,
     maxHeight: 300,
   },
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
 });
 
 export const customInputStyle = StyleSheet.create({
@@ -60,8 +64,20 @@ export const HomeScreenStyle = StyleSheet.create({
 
 export const PharmacyListsScreenStyle = StyleSheet.create({
   conatiner: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  image: {
+    width: '80%',
+    maxWidth: 300,
+    maxHeight: 300,
+  },
+  text: {
+    color: 'green',
     justifyContent: 'center',
     alignItems: 'center',
+    fontSize: 12,
+    fontWeight: 'bold',
+    paddingVertical: 23,
   },
-  text: { color: 'red' },
 });

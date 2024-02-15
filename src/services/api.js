@@ -2,7 +2,7 @@ import * as axios from 'react-native-axios';
 
 const options = {
   method: 'GET',
-  url: 'https://pharmacies-de-garde-nc.p.rapidapi.com/q/health',
+  url: 'https://pharmacies-de-garde-nc.p.rapidapi.com/gardes',
   headers: {
     'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
     'X-RapidAPI-Host': 'pharmacies-de-garde-nc.p.rapidapi.com',

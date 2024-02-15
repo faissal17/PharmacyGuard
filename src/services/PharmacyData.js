@@ -1,4 +1,4 @@
-const data = [
+const PharmacyData = [
   {
     id: 1,
     name: 'Pharmacie Du Souk',
@@ -58,7 +58,7 @@ const data = [
   },
   {
     id: 3,
-    name: 'صيدلية إبن سينا',
+    name: 'Pharmacy Ibn Sina',
     address: '6FQ5+X4W, Youssoufia',
     latitude: 32.23999469999999,
     longitude: -8.542164399999997,
@@ -115,7 +115,7 @@ const data = [
   },
   {
     id: 5,
-    name: 'صيدلية احمر',
+    name: ' Pharmacy Ahmar',
     address: '6FR7+RP2, Youssoufia',
     latitude: 32.2420163,
     longitude: -8.535741800000002,
@@ -151,4 +151,4 @@ const data = [
   },
 ];
 
-export default data;
+export default PharmacyData;
