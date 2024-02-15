@@ -5,7 +5,10 @@ import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
-    <ImageBackground source={background} style={styles.background}>
+    <ImageBackground
+      source={require('./src/assets/images/background.png')}
+      style={styles.background}
+    >
       <SafeAreaView style={styles.container}>
         <AppNavigator />
       </SafeAreaView>
