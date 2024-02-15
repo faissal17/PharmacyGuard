@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, Linking } from 'react-native';
 import { CustomTableStyle } from '../../styles/globalStyle';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-onHeartLIke = () => {
-  console.log('heart');
-};
 const CustomTable = ({ data }) => {
+  const onHeartLike = ({ item }) => {
+    console.log(item.latitude);
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${item.latitude},${item.longitude}`;
+    Linking.openURL(mapUrl);
+  };
+
   const renderItem = ({ item }) => (
     <View style={CustomTableStyle.row}>
       <Image source={{ uri: item.images[0] }} style={CustomTableStyle.image} />
@@ -16,8 +19,13 @@ const CustomTable = ({ data }) => {
         <Text>{`Opening Hours: ${item.openingHours} - ${item.closingHours}`}</Text>
       </View>
       <View style={CustomTableStyle.icons}>
-        <Ionicons name="heart" size={20} onPress={onHeartLIke} />
-        <MaterialCommunityIcons name="map-marker" size={20} color="blue" />
+        <Ionicons name="heart" size={20} />
+        <MaterialCommunityIcons
+          name="map-marker"
+          size={20}
+          color="blue"
+          onPress={() => onHeartLike({ item })}
+        />
       </View>
     </View>
   );
