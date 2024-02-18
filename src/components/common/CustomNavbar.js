@@ -8,7 +8,6 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 
 const Tab = createBottomTabNavigator();
 
-const PharmacyDetailsScreenName = 'Pharmacy Details';
 const SettingScreenName = 'Settings';
 const PharmacyListScreenName = 'Pharmacy List';
 const FavoritesScreenName = 'Favorites ';
@@ -27,9 +26,7 @@ const CustomNavbar = () => {
             case PharmacyListScreenName:
               iconName = focused ? 'home' : 'home-outline';
               break;
-            case PharmacyDetailsScreenName:
-              iconName = focused ? 'list' : 'list-outline';
-              break;
+
             case FavoritesScreenName:
               iconName = focused ? 'heart' : 'heart-outline';
               break;
@@ -53,10 +50,7 @@ const CustomNavbar = () => {
         component={PharmacyListScreen}
       />
       <Tab.Screen name={FavoritesScreenName} component={FavoritesScreen} />
-      <Tab.Screen
-        name={PharmacyDetailsScreenName}
-        component={PharmacyDetailsScreen}
-      />
+
       <Tab.Screen name={SettingScreenName} component={SettingScreen} />
     </Tab.Navigator>
   );

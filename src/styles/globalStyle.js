@@ -170,4 +170,61 @@ export const PharmacyDetailsScreenStyle = StyleSheet.create({
     textTransform: 'uppercase',
     paddingVertical: 15,
   },
+  detailsContainer: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  address: {
+    fontSize: 16,
+    color: '#555',
+    marginBottom: 10,
+  },
+  distance: {
+    fontSize: 14,
+    color: '#888',
+    marginBottom: 10,
+  },
+  servicesContainer: {
+    marginBottom: 10,
+  },
+  servicesTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  service: {
+    backgroundColor: '#eee',
+    padding: 5,
+    marginRight: 5,
+    marginBottom: 5,
+    borderRadius: 5,
+  },
+  openingHoursContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  openingHours: {
+    marginLeft: 5,
+    fontSize: 16,
+    color: '#333',
+  },
+  contactTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  contactInfo: {
+    fontSize: 16,
+    marginBottom: 5,
+  },
 });
