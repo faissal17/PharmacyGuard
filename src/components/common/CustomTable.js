@@ -4,10 +4,12 @@ import { View, Text, FlatList, Image, Linking } from 'react-native';
 import { CustomTableStyle } from '../../styles/globalStyle';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const CustomTable = ({ data }) => {
   const [favorites, setFavorites] = useState([]);
 
+  const navigation = useNavigation();
   useEffect(() => {
     loadFavorites();
   }, []);
@@ -50,11 +52,17 @@ const CustomTable = ({ data }) => {
     }
   };
 
+  const sendDetails = (item) => {
+    navigation.navigate('Details', { item });
+  };
+
   const renderItem = ({ item }) => (
     <View style={CustomTableStyle.row}>
       <Image source={{ uri: item.images[0] }} style={CustomTableStyle.image} />
       <View style={CustomTableStyle.info}>
-        <Text style={CustomTableStyle.name}>{item.name}</Text>
+        <Text style={CustomTableStyle.name} onPress={() => sendDetails(item)}>
+          {item.name}
+        </Text>
         <Text>{`Distance: ${item.distance} meters`}</Text>
         <Text>{`Opening Hours: ${item.openingHours} - ${item.closingHours}`}</Text>
       </View>
