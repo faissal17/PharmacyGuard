@@ -108,3 +108,15 @@ export const CustomTableStyle = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export const FavoritesScreenStyle = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  image: {
+    width: '80%',
+    maxWidth: 300,
+    maxHeight: 300,
+  },
+});

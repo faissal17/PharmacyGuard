@@ -1,13 +1,53 @@
-import React from 'react';
+// CustomTable.js
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, Linking } from 'react-native';
 import { CustomTableStyle } from '../../styles/globalStyle';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CustomTable = ({ data }) => {
-  const onHeartLike = ({ item }) => {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    // Load favorites from AsyncStorage when the component mounts
+    loadFavorites();
+  }, []);
+
+  const loadFavorites = async () => {
+    try {
+      const storedFavorites = await AsyncStorage.getItem('favorites');
+      if (storedFavorites) {
+        setFavorites(JSON.parse(storedFavorites));
+      }
+    } catch (error) {
+      console.error('Error loading favorites:', error);
+    }
+  };
+
+  const saveFavorites = async (updatedFavorites) => {
+    try {
+      await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      setFavorites(updatedFavorites);
+    } catch (error) {
+      console.error('Error saving favorites:', error);
+    }
+  };
+
+  const onPositionClick = ({ item }) => {
     console.log(item.latitude);
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${item.latitude},${item.longitude}`;
     Linking.openURL(mapUrl);
+  };
+
+  const onHeartClick = ({ item }) => {
+    // Check if the pharmacy is already in favorites
+    const isFavorite = favorites.some((fav) => fav.id === item.id);
+
+    if (!isFavorite) {
+      // Add the pharmacy to favorites
+      const updatedFavorites = [...favorites, item];
+      saveFavorites(updatedFavorites);
+    }
   };
 
   const renderItem = ({ item }) => (
@@ -19,12 +59,17 @@ const CustomTable = ({ data }) => {
         <Text>{`Opening Hours: ${item.openingHours} - ${item.closingHours}`}</Text>
       </View>
       <View style={CustomTableStyle.icons}>
-        <Ionicons name="heart" size={20} />
+        <Ionicons
+          name="heart"
+          size={20}
+          onPress={() => onHeartClick({ item })}
+          color={favorites.some((fav) => fav.id === item.id) ? 'red' : 'gray'}
+        />
         <MaterialCommunityIcons
           name="map-marker"
           size={20}
           color="blue"
-          onPress={() => onHeartLike({ item })}
+          onPress={() => onPositionClick({ item })}
         />
       </View>
     </View>
