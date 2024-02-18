@@ -129,3 +129,24 @@ export const FavoritesScreenStyle = StyleSheet.create({
     paddingVertical: 15,
   },
 });
+
+export const SettingScreenStyle = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  image: {
+    width: '80%',
+    maxWidth: 300,
+    maxHeight: 300,
+  },
+  text: {
+    color: 'green',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    paddingVertical: 15,
+  },
+});

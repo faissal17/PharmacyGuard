@@ -39,9 +39,10 @@ const LoginScreen = () => {
         auth,
         userEmail,
         password,
-      );
-      console.log(response);
-      navigation.navigate('Home');
+      ).then(() => {
+        console.log(response);
+        navigation.navigate('Home');
+      });
     } catch (error) {
       console.error(error);
       alert('Login failed: Email or password are wrong');
