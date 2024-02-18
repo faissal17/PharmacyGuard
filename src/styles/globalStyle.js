@@ -79,7 +79,7 @@ export const PharmacyListsScreenStyle = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    paddingVertical: 23,
+    paddingVertical: 15,
   },
 });
 
@@ -118,5 +118,14 @@ export const FavoritesScreenStyle = StyleSheet.create({
     width: '80%',
     maxWidth: 300,
     maxHeight: 300,
+  },
+  text: {
+    color: 'green',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    paddingVertical: 15,
   },
 });

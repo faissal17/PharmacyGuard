@@ -1,11 +1,16 @@
-import { View, Text, Image, useWindowDimensions, FlatList } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  useWindowDimensions,
+  FlatList,
+} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { FavoritesScreenStyle } from '../../styles/globalStyle';
 import Logo from '../../assets/images/Favorite.png';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CustomTableStyle } from '../../styles/globalStyle';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-
 
 const FavoritesScreen = () => {
   const { height } = useWindowDimensions();
@@ -35,39 +40,29 @@ const FavoritesScreen = () => {
         <Text>{`Opening Hours: ${item.openingHours} - ${item.closingHours}`}</Text>
       </View>
       <View style={CustomTableStyle.icons}>
-        <Ionicons
-          name="heart"
-          size={20}
-          onPress={() => onHeartClick({ item })}
-          color={favorites.some((fav) => fav.id === item.id) ? 'red' : 'gray'}
-        />
-        <MaterialCommunityIcons
-          name="map-marker"
-          size={20}
-          color="blue"
-          onPress={() => onPositionClick({ item })}
-        />
+        <Ionicons name="heart" size={20} />
+        <MaterialCommunityIcons name="map-marker" size={20} color="blue" />
       </View>
     </View>
   );
+
   return (
-    <React.Fragment>
+    <View style={{ flex: 1 }}>
       <View style={FavoritesScreenStyle.container}>
         <Image
           style={[FavoritesScreenStyle.image, { height: height * 0.3 }]}
           source={Logo}
           resizeMode="contain"
         />
-        <Text>FavoritesScreen</Text>
+        <Text style={FavoritesScreenStyle.text}>Favorites List</Text>
       </View>
-      <View>
-        <FlatList
-          data={favorites}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderItem}
-        />
-      </View>
-    </React.Fragment>
+      <FlatList
+        data={favorites}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
+        windowSize={5}
+      />
+    </View>
   );
 };
 

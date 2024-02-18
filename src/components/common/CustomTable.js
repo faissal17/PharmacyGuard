@@ -9,7 +9,6 @@ const CustomTable = ({ data }) => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    // Load favorites from AsyncStorage when the component mounts
     loadFavorites();
   }, []);
 
@@ -40,11 +39,12 @@ const CustomTable = ({ data }) => {
   };
 
   const onHeartClick = ({ item }) => {
-    // Check if the pharmacy is already in favorites
     const isFavorite = favorites.some((fav) => fav.id === item.id);
 
-    if (!isFavorite) {
-      // Add the pharmacy to favorites
+    if (isFavorite) {
+      const updatedFavorites = favorites.filter((fav) => fav.id !== item.id);
+      saveFavorites(updatedFavorites);
+    } else {
       const updatedFavorites = [...favorites, item];
       saveFavorites(updatedFavorites);
     }
